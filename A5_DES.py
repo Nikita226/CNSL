@@ -1,5 +1,3 @@
-# Python3 code for the above approach
-
 # Hexadecimal to binary conversion
 def hex2bin(s):
 	mp = {'0': "0000", '1': "0001",	'2': "0010",'3': "0011",'4': "0100",'5': "0101",'6': "0110",'7': "0111",'8': "1000",'9': "1001",'A': "1010",'B': "1011",'C': "1100",'D': "1101",'E': "1110",'F': "1111"}
@@ -82,12 +80,14 @@ initial_perm = [58, 50, 42, 34, 26, 18, 10, 2,
 				63, 55, 47, 39, 31, 23, 15, 7]
 
 # Expansion D-box Table
-exp_d = [32, 1, 2, 3, 4, 5, 4, 5,
-		6, 7, 8, 9, 8, 9, 10, 11,
-		12, 13, 12, 13, 14, 15, 16, 17,
-		16, 17, 18, 19, 20, 21, 20, 21,
-		22, 23, 24, 25, 24, 25, 26, 27,
-		28, 29, 28, 29, 30, 31, 32, 1]
+exp_d = [ 32,  1,  2,  3,  4, 5, 
+		   4,  5,  6,  7,  8, 9, 
+		   8,  9, 10, 11, 12, 13, 
+		  12, 13, 14, 15, 16, 17,
+		  16, 17, 18, 19, 20, 21, 
+		  20, 21, 22, 23, 24, 25, 
+		  24, 25, 26, 27, 28, 29, 
+		  28, 29, 30, 31, 32,  1]
 
 # Straight Permutation Table
 per = [16, 7, 20, 21,
@@ -160,6 +160,7 @@ def encrypt(pt, rkb, rk):
 	left = pt[0:32]
 	right = pt[32:64]
 	for i in range(0, 16):
+		
 		# Expansion D-box: Expanding the 32 bits data into 48 bits
 		right_expanded = permute(right, exp_d, 48)
 
@@ -170,8 +171,7 @@ def encrypt(pt, rkb, rk):
 		sbox_str = ""
 		for j in range(0, 8):
 			row = bin2dec(int(xor_x[j * 6] + xor_x[j * 6 + 5]))
-			col = bin2dec(
-				int(xor_x[j * 6 + 1] + xor_x[j * 6 + 2] + xor_x[j * 6 + 3] + xor_x[j * 6 + 4]))
+			col = bin2dec(int(xor_x[j * 6 + 1] + xor_x[j * 6 + 2] + xor_x[j * 6 + 3] + xor_x[j * 6 + 4]))
 			val = sbox[j][row][col]
 			sbox_str = sbox_str + dec2bin(val)
 
@@ -185,8 +185,7 @@ def encrypt(pt, rkb, rk):
 		# Swapper
 		if(i != 15):
 			left, right = right, left
-		print("Round ", i + 1, " ", bin2hex(left),
-			" ", bin2hex(right), " ", rk[i])
+		print("Round ", i + 1, " ", bin2hex(left), " ", bin2hex(right), " ", rk[i])
 
 	# Combination
 	combine = left + right
@@ -252,12 +251,12 @@ for i in range(0, 16):
 	rkb.append(round_key)
 	rk.append(bin2hex(round_key))
 
-print("Encryption")
+print("\nEncryption")
 cipher_text = bin2hex(encrypt(pt, rkb, rk))
-print("Cipher Text : ", cipher_text)
+print("\nCipher Text : ", cipher_text)
 
-print("Decryption")
+print("\n\nDecryption")
 rkb_rev = rkb[::-1]
 rk_rev = rk[::-1]
 text = bin2hex(encrypt(cipher_text, rkb_rev, rk_rev))
-print("Plain Text : ", text)
+print("\nPlain Text : ", text)

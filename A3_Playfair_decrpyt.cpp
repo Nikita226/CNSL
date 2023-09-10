@@ -128,11 +128,11 @@ void decryptByPlayfairCipher(char str[], char key[])
 int main()
 {
 	char str[SIZE], key[SIZE];
-	strcpy(key, "Monarchy");
+	strcpy(key, "monarchy");
 	cout << "Key Text: " << key << endl;
 	strcpy(str, "ageksrfdrp");
 	cout << "Plain text: " << str << endl;
 	decryptByPlayfairCipher(str, key);
-	cout << "Deciphered text: " << str << endl;
+	cout << "decrypted text: " << str << endl;
 	return 0;
 }

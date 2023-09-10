@@ -22,7 +22,9 @@ string encrypt(string str, string key)
 	for (int i = 0; i < str.size(); i++)
 	{
 		char x = (str[i] + key[i]) % 26;
+		cout << int(str[i]) << " + " << int(key[i]) << " = " << str[i] + key[i] << "  (" << (str[i] + key[i])%26 << ")  ";
 		x += 'A';
+		cout << x << "\n";
 		cipher_text.push_back(x);
 	}
 	return cipher_text;

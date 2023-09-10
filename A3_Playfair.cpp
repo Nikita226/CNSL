@@ -29,7 +29,6 @@ int removeSpaces(char* plain, int ps)
 void generateKeyTable(char key[], int ks, char keyT[5][5])
 {
 	int i, j, k;
-
 	// a 26 character hashmap
 	// to store count of the alphabet
 	int dicty[26] = { 0 };
@@ -38,12 +37,9 @@ void generateKeyTable(char key[], int ks, char keyT[5][5])
 		if (key[i] != 'j')
 			dicty[key[i] - 97] = 2;
 	}
-
 	dicty['j' - 97] = 1;
-
 	i = 0;
 	j = 0;
-
 	for (k = 0; k < ks; k++) 
 	{
 		if (dicty[key[k] - 97] == 2) 
@@ -58,7 +54,6 @@ void generateKeyTable(char key[], int ks, char keyT[5][5])
 			}
 		}
 	}
-
 	for (k = 0; k < 26; k++) 
 	{
 		if (dicty[k] == 0) 
@@ -79,18 +74,14 @@ void generateKeyTable(char key[], int ks, char keyT[5][5])
 void search(char keyT[5][5], char a, char b, int arr[])
 {
 	int i, j;
-
 	if (a == 'j')
 		a = 'i';
 	else if (b == 'j')
 		b = 'i';
-
 	for (i = 0; i < 5; i++) 
 	{
-
 		for (j = 0; j < 5; j++) 
 		{
-
 			if (keyT[i][j] == a) 
 			{
 				arr[0] = i;
@@ -165,18 +156,11 @@ void encryptByPlayfairCipher(char str[], char key[])
 int main()
 {
 	char str[30], key[30];
-
-	
 	strcpy(key, "Monarchy");
 	cout << "Key text: " << key << "\n";
-
-	
 	strcpy(str, "nikitakhot");
 	cout << "Plain text: " << str << "\n";
-
 	encryptByPlayfairCipher(str, key);
-
 	cout << "\n(Encrypted) Cipher text: " << str << "\n";
-
 	return 0;
 }

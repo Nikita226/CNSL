@@ -69,12 +69,8 @@ string decryptRailFence(string cipher, int key)
 
 int main()
 {
-	string plain_text;
-	int key;
-	cout << "Enter plain text: ";
-	cin >> plain_text;
-	cout << "Enter key: ";
-	cin >> key;
+	string plain_text = "nikitakhot";
+	int key = 3;
 	string cipher_text, decrypted_text;
 	cipher_text = encryptRailFence(plain_text, key);
 	cout << "(Encrypted) Cipher Text: " << cipher_text << endl;

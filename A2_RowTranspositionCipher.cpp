@@ -89,13 +89,10 @@ string decryptMessage(string cipher,string const key,map<int,int> keyMap)
 	return msg;
 }
 
-int main(){
-	string msg;
-	cout << "Enter plain text: ";
-	cin >> msg;
-    string key;
-	cout << "Enter key: ";
-	cin >> key;
+int main()
+{
+	string msg = "nikita khot";
+    string key = "hack";
     map<int,int> keyMap;
 
     for(int i=0; i < key.length(); i++)
