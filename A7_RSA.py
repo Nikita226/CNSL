@@ -10,7 +10,7 @@ def prime_checker(p):
 		for i in range(2, p):
 			if p % i == 0:
 				return -1
-			return 1
+		return 1
 
 def RSA(p: int, q: int, message: int):
     n = p * q

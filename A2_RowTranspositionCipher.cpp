@@ -41,9 +41,11 @@ string encryptMessage(string msg,string const key,map<int,int> keyMap)
 		// getting cipher text from matrix column wise using permuted key
 		for (int i=0; i<row; i++)
 		{
+			cout << matrix[i][j] << " ";
 			if( isalpha(matrix[i][j]) || matrix[i][j]==' ' || matrix[i][j]=='_')
 				cipher += matrix[i][j];
 		}
+		cout << "\n";
 	}
 
 	return cipher;

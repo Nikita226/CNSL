@@ -22,10 +22,20 @@ string encryptRailFence(string text, int key)
 	}
 	string result;
 	for (i=0; i < key; i++)
+	{
 		for (j=0; j < text.length(); j++)
+		{
 			if (rail[i][j]!='\n')
+			{
 				result.push_back(rail[i][j]);
-
+				cout << rail[i][j];
+			}
+			else
+				cout << " ";
+			cout << " "; 
+		}
+		cout << "\n";
+	}
 	return result;
 }
 
@@ -69,12 +79,16 @@ string decryptRailFence(string cipher, int key)
 
 int main()
 {
-	string plain_text = "nikitakhot";
+	string plain_text;
+	cout << "\nPlain Text: ";
+	cin >> plain_text;
 	int key = 3;
+	cout << "Key: ";
+	cin >> key;
 	string cipher_text, decrypted_text;
 	cipher_text = encryptRailFence(plain_text, key);
-	cout << "(Encrypted) Cipher Text: " << cipher_text << endl;
+	cout << "\nEncrypted Text: " << cipher_text << endl;
 	decrypted_text = decryptRailFence(cipher_text, key);
-	cout << "(Decrypted) Plain Test: " << decrypted_text << endl;
+	cout << "Decrypted Test: " << decrypted_text << "\n\n";
 	return 0;
 }

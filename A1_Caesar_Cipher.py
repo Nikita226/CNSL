@@ -20,11 +20,9 @@ def decrypt(text,s):
 	return result
 
 
-text = "nikita"
-s = 3
-print ("Plain Text : " + text)
-print ("Shift : " + str(s))
+text = input("\nPlain text: ")
+s = int(input("Shift: "))
 cipher = encrypt(text,s)
-print ("Encrypted Cipher Text: " + cipher)
+print("\nEncrypted Cipher Text: " + cipher)
 plain = decrypt(cipher,s)
-print ("Decrypted Text : " + plain)
+print("Decrypted Text : " + plain + "\n")
