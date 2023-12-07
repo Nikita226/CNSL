@@ -57,4 +57,3 @@ print(f"\nSecret Key For User 1 is {k1}\nSecret Key For User 2 is {k2}\n")
 
 if k1 == k2:
 	print("Keys can be exchanged")
-else:
